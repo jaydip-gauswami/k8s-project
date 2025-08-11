@@ -14,9 +14,7 @@ minikube start --driver=docker
 #2. Create Deployment
 File: deployment.yaml
 
-yaml
-Copy
-Edit
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -38,9 +36,7 @@ spec:
         - containerPort: 80
 Apply:
 
-bash
-Copy
-Edit
+
 kubectl apply -f deployment.yaml
 kubectl get pods
 
@@ -48,9 +44,7 @@ kubectl get pods
 #3.Create Service
 File: service.yaml
 
-yaml
-Copy
-Edit
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -66,47 +60,34 @@ spec:
     nodePort: 30080
 Apply:
 
-bash
-Copy
-Edit
+
 kubectl apply -f service.yaml
 kubectl get svc
 
 
 #4. Access Application
-bash
-Copy
-Edit
-minikube service myapp-service --url
-Example output:
 
-cpp
-Copy
-Edit
+minikube service myapp-service --url
+
 http://192.168.49.2:30080
 Open in browser to see "Welcome to Nginx" page.
 
 
 #5. Scaling Deployment
-bash
-Copy
-Edit
+
 kubectl scale deployment myapp-deployment --replicas=4
 kubectl get pods
 kubectl rollout status deployment/myapp-deployment
 
 
 #6. Rolling Update
-bash
-Copy
-Edit
+
 kubectl set image deployment/myapp-deployment myapp=nginx:1.21.6
 kubectl rollout status deployment/myapp-deployment
 
 
 #7. Rollback (if needed)
-bash
-Copy
-Edit
+
+
 kubectl rollout undo deployment/myapp-deployment
 
