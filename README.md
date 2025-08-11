@@ -7,7 +7,7 @@ Deploy an Nginx web application on Kubernetes using Minikube, expose it via a No
 
 ## 📌 Steps Performed
 
-### 1. Start Minikube
+# 1. Start Minikube
 ```bash
 minikube start --driver=docker
 
